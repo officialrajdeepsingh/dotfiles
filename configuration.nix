@@ -132,8 +132,8 @@
     isNormalUser = true;
     description = "officialrajdeepsingh";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF2a8j39y8iUXMtIKAjR9dp1FdJX7QhgNSeUlXIT9SXA radewala.2@gmail.com"
+    openssh.authorizedKeys.keyFiles = [
+        /etc/nixos/.ssh/id_ed25519
     ];
     packages = with pkgs; [
       # Browser
