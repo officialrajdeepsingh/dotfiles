@@ -133,7 +133,7 @@
     description = "officialrajdeepsingh";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     openssh.authorizedKeys.keyFiles = [
-        /etc/nixos/.ssh/id_ed25519
+        /etc/nixos/.ssh/id_ed25519.pub
     ];
     packages = with pkgs; [
       # Browser
