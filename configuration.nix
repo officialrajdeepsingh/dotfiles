@@ -147,9 +147,7 @@
     isNormalUser = true;
     description = "officialrajdeepsingh";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    openssh.authorizedKeys.keyFiles = [
-        .ssh/id_ed25519.pub
-    ];
+    # openssh.authorizedKeys.keyFiles = [  .ssh/id_ed25519.pub ];
     packages = with pkgs; [
       # Browser
       # google-chrome
