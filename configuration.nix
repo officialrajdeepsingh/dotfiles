@@ -90,6 +90,21 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+    # ---Auto CPU---
+    programs.auto-cpufreq.enable = true;
+    # optionally, you can configure your auto-cpufreq settings, if you have any
+    programs.auto-cpufreq.settings = {
+      charger = {
+         governor = "performance";
+         turbo = "auto";
+       };
+
+      battery = {
+         governor = "powersave";
+         turbo = "auto";
+      };
+    };
+    # ---Auto CPU ---
 
   # postgresql 
   services.postgresql = {
@@ -133,7 +148,7 @@
     description = "officialrajdeepsingh";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     openssh.authorizedKeys.keyFiles = [
-        /etc/nixos/.ssh/id_ed25519.pub
+        .ssh/id_ed25519.pub
     ];
     packages = with pkgs; [
       # Browser
