@@ -9,6 +9,12 @@
        url = "github:nix-community/home-manager";
        inputs.nixpkgs.follows = "nixpkgs";
      };
+     # ---Auto CPU---
+     auto-cpufreq = {
+      url = "github:AdnanHodzic/auto-cpufreq";
+      inputs.nixpkgs.follows = "nixpkgs";
+     };
+     # ---Auto CPU---
 
     # NixVim
     #  nixvim = {
@@ -19,7 +25,7 @@
 
   };
 
- outputs = { self, nixpkgs, ... }@inputs:
+ outputs = { self, nixpkgs, auto-cpufreq, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -30,6 +36,7 @@
           specialArgs = {inherit inputs;};
           modules = [ 
             ./configuration.nix
+             auto-cpufreq.nixosModules.default
              inputs.home-manager.nixosModules.default
           ];
         };
