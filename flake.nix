@@ -1,7 +1,8 @@
 {
   description = "Nixos config flake";
 
-  inputs = {
+
+   inputs = {
   
      nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -9,37 +10,37 @@
        url = "github:nix-community/home-manager";
        inputs.nixpkgs.follows = "nixpkgs";
      };
-     # ---Auto CPU---
-     auto-cpufreq = {
-      url = "github:AdnanHodzic/auto-cpufreq";
-      inputs.nixpkgs.follows = "nixpkgs";
-     };
-     # ---Auto CPU---
+
+
+    # ---Auto CPU---
+    # auto-cpufreq = {
+    #  url = "github:AdnanHodzic/auto-cpufreq";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # ---Auto CPU---
 
     # NixVim
-    #  nixvim = {
-    #    url = "github:nix-community/nixvim";
-    #    inputs.nixpkgs.follows = "nixpkgs";
-    #  };
- 
+      nixvim = {
+        url = "github:nix-community/nixvim/nixos-23.05";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
 
   };
 
- outputs = { self, nixpkgs, auto-cpufreq, ... }@inputs:
+ outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-    
-      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs;};
           modules = [ 
             ./configuration.nix
-             auto-cpufreq.nixosModules.default
+            ./services/services.nix
+            ./programs/programs.nix
              inputs.home-manager.nixosModules.default
           ];
-        };
-
-    };
+       };
+   };
 }
