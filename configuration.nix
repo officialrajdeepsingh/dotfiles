@@ -28,7 +28,7 @@
   networking.networkmanager.enable = true;
 
   # Allow to install unfree vscode package in nixos.
-   # nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -60,9 +60,9 @@
   services.xserver.excludePackages = with  pkgs; [ xterm ];
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Enable CUPS to print documents.
@@ -87,59 +87,9 @@
   # Enable experimental-features in nixos
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-    # ---Auto CPU---
-    programs.auto-cpufreq.enable = true;
-    # optionally, you can configure your auto-cpufreq settings, if you have any
-    programs.auto-cpufreq.settings = {
-      charger = {
-         governor = "performance";
-         turbo = "auto";
-       };
-
-      battery = {
-         governor = "powersave";
-         turbo = "auto";
-      };
-    };
-    # ---Auto CPU ---
-
-  # postgresql 
-  services.postgresql = {
-    enable = true;
-    ensureUsers= [{ name = "rajdeepsingh";}];
-    # ensureDatabases=["officialrajdeepsingh"];
-    # authentication = pkgs.lib.mkOverride 10 ''
-    # type database  DBuser  auth-method
-    #  local all       all     trust
-    # '';
-  };
-
   # change the deafult bash Shell to zsh shell
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
-  programs = {
-      zsh = {
-          enable = true;
-          autosuggestions.enable = true;
-          zsh-autoenv.enable = true;
-          syntaxHighlighting.enable = true;
-          ohMyZsh = {
-            enable = true;
-            theme = "robbyrussell";
-            plugins = [
-              "git"
-              "npm"
-              "history"
-              "node"
-              "rust"
-              "deno"
-            ];
-          };
-      };
-  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   
@@ -151,7 +101,7 @@
     packages = with pkgs; [
       # Browser
       # google-chrome
-      # vscode
+       vscode
     ];
   };
 
@@ -175,10 +125,10 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  # environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-  ];
+  # ];
 
   # Some programs need SUID wrappers, can be configured further or are started in user sessions.
   # programs.mtr.enable = true;
@@ -186,18 +136,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  services.openssh = {
-      enable = true;
-      settings = {
-        PasswordAuthentication = true;
-      };
-  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -211,3 +149,4 @@
   system.stateVersion = "23.05"; # Did you read the comment?
 
 }
+
