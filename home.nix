@@ -16,7 +16,7 @@
   # command for install or rebuild system :  sudo nixos-rebuild switch --flake /etc/nixos/#default
 
   # Allow to install unfree package in nixos.
-   nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree = true;
 
   # Using mismatched versions nixos and home manager.
   home.enableNixpkgsReleaseCheck = false;
@@ -42,9 +42,6 @@
       
   # IDE
     lunarvim
-    # vscode  
-    # vim
-    # neovim 
      
   # JavaScript
     nodejs_20
