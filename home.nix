@@ -41,6 +41,7 @@
 
       
   # IDE
+    lunarvim
     # vscode  
     # vim
     # neovim 
