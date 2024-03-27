@@ -103,7 +103,7 @@
     packages = with pkgs; [
       # Browser
       # google-chrome
-       vscode
+      # vscode
     ];
   };
 
