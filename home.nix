@@ -1,11 +1,5 @@
-
- {config, pkgs,nixvim, ... }:
-
+{config, pkgs, inputs, ... }:
 {
-  
-
-
-
   # Home Manager needs a bit of information about you and the paths it should manage.
   
   home.username = "officialrajdeepsingh";
@@ -48,8 +42,8 @@
       
   # IDE
     # vscode  
-     vim
-     neovim 
+    # vim
+    # neovim 
      
   # JavaScript
     nodejs_20
@@ -93,7 +87,7 @@
 
 
   # others
-    upwork
+    # upwork
     zoom-us
     openssl
    
