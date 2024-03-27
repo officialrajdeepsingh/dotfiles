@@ -1,16 +1,14 @@
 {
   description = "Nixos config flake";
 
-
    inputs = {
   
-     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-     home-manager = {
+    home-manager = {
        url = "github:nix-community/home-manager";
        inputs.nixpkgs.follows = "nixpkgs";
-     };
-
+    };
 
     # ---Auto CPU---
     # auto-cpufreq = {
@@ -18,13 +16,6 @@
     #  inputs.nixpkgs.follows = "nixpkgs";
     # };
     # ---Auto CPU---
-
-    # NixVim
-      nixvim = {
-        url = "github:nix-community/nixvim/nixos-23.05";
-        inputs.nixpkgs.follows = "nixpkgs";
-      };
-
   };
 
  outputs = { self, nixpkgs, home-manager, ... }@inputs:
@@ -37,8 +28,17 @@
           specialArgs = {inherit inputs;};
           modules = [ 
             ./configuration.nix
-             inputs.home-manager.nixosModules.default
           ];
        };
+      
+      homeConfigurations.default = home-manager.lib.homeManagerConfiguration {
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        modules = [
+          ./home.nix
+        ];
+        extraSpecialArgs = { inherit inputs; };
+    };
+
    };
 }
