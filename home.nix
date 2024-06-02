@@ -16,16 +16,23 @@
   # command for install or rebuild system :  sudo nixos-rebuild switch --flake /etc/nixos/#default
 
   # Allow to install unfree package in nixos.
-  # nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
   # Using mismatched versions nixos and home manager.
   home.enableNixpkgsReleaseCheck = false;
 
   home.packages = with pkgs; [
-    
+  
+  # Database-cli (install for https://www.openstatus.dev )
+    turso-cli
+
   # Browser
     google-chrome
     tor-browser
+    brave
+  
+  # Notes App
+    notesnook
 
   # Language
     rustup
@@ -70,7 +77,8 @@
   # Utility Command
     xclip
     tree
-  
+    hugo
+    
   # thunderbird
 
   # podcasts
