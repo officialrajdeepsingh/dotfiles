@@ -93,6 +93,13 @@
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
 
+  # Define env Editor for sudo
+  environment.variables= {
+    EDITOR = "lvim";
+    VISUAL = "lvim";
+    SUDO_EDITOR = "lvim";
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   
   users.users.officialrajdeepsingh = {
