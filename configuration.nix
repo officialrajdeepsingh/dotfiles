@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
 
@@ -105,6 +105,10 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     # openssh.authorizedKeys.keyFiles = [  .ssh/id_ed25519.pub ];
     packages = with pkgs; [
+    
+      ## github:elythh/nixvim 
+      inputs.nixvim.packages.${pkgs.system}.default
+
       # Browser
       # google-chrome
       # vscode
