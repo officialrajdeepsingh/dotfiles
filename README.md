@@ -1,7 +1,5 @@
 This is the nixos configuration built with the home manager and flake.
 
-This is the nixos configuration built with the home manager and flake.
-
 ## Clone the GitHub Repository:
 
 ```bash
