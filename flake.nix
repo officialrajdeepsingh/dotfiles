@@ -3,7 +3,9 @@
 
   inputs = {
     ## NixPkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+    };
 
     ## Home Manager
     home-manager = {
@@ -11,17 +13,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ## NixVim
+    ## NixVim using https://github.com/elythh/nixvim flake.
     nixvim = {
       url = "github:elythh/nixvim";
     };
 
-    # ---Auto CPU---
-    # auto-cpufreq = {
-    #  url = "github:AdnanHodzic/auto-cpufreq";
+    ## Nixvim cannot work, so I used https://github.com/elythh/nixvim flake.
+    # nixvim = {
+    #  url = "github:nix-community/nixvim";
     #  inputs.nixpkgs.follows = "nixpkgs";
     # };
-    # ---Auto CPU---
   };
 
   outputs = {
@@ -47,7 +48,9 @@
       inherit pkgs;
       modules = [
         ./home.nix
+        # nixvim.homeManagerModules.nixvim  Import the nixvim.homeManagerModules.nixvim module to use nixvim at home.nix file, it cannot work.
       ];
+
       extraSpecialArgs = {inherit inputs;};
     };
   };
