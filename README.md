@@ -9,6 +9,10 @@ git clone https://github.com/officialrajdeepsingh/nixos-configure.git
 Now, I built the nixos with the following command.
 
 ```bash
-home-manager switch -f ~/nixos-config/home.nix
+## First build the nixos.
 sudo nixos-rebuild switch  --flake ~/nixos-config/#default
+# or
+## Next, install the package using the home manager.
+home-manager switch -f ~/nixos-config/home.nix
+
 ```
