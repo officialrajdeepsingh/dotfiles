@@ -24,53 +24,41 @@
   home.enableNixpkgsReleaseCheck = false;
 
   home.packages = with pkgs; [
-    # neovim
-    # youtube music
+    ## IDE
+    # lunarvim
+
+    ## youtube music
     youtube-music
     youtube-dl
 
-    # Database-cli (install for https://www.openstatus.dev )
+    ## Database and CLI (install for https://www.openstatus.dev )
+    # surrealdb
+    # nodePackages.prisma
     turso-cli
 
-    # Browser
+    ## Browser
     google-chrome
     tor-browser
     brave
 
-    # Notes App
-    notesnook
-
-    # Language
+    ## Language
     rustup
     lua
     zig
     python3
 
-    # Install for meshery UI
-    # go
-    # cope
-    # gnumake
-    # gnumake42
-
-    # IDE
-    # lunarvim
-
-    # JavaScript
+    ## JavaScript
     nodejs_20
-    # nodejs_18
     deno
-    # nodePackages_latest.npm
     nodePackages_latest.yarn
     nodePackages_latest.pnpm
-    # turbo
     node2nix
 
-    # Terminal
+    ## Terminal
     lazygit
-    bottom
     (nerdfonts.override {fonts = ["FiraCode"];})
 
-    # Utility
+    ## Utility
     git
     gh
     act
@@ -79,34 +67,14 @@
     unzip
     wget
 
-    # Utility Command
+    ## Utility Command
     xclip
     tree
     hugo
 
-    # thunderbird
-
-    # podcasts
-    # gnome-podcasts
-
-    # office
-    # libreoffice
-
-    # database
-    # surrealdb
-    # nodePackages.prisma
-
-    # others
-    # upwork
+    ## others
     zoom-us
     openssl
-
-    # It is sometimes useful to fine-tune packages, for example, by applying overrides. You can do that directly here, just don't forget the parentheses. Maybe you want to install Nerd Fonts with a limited number of fonts?
-
-    # You can also create simple shell scripts directly inside your configuration. For example, this adds a command 'my-hello' to your environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage plain files is through 'home.file'.
