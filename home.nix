@@ -24,6 +24,17 @@
   home.enableNixpkgsReleaseCheck = false;
 
   home.packages = with pkgs; [
+    ## File Manager
+    yazi
+    ffmpegthumbnailer
+    unar
+    jq
+    poppler
+    fd
+    ripgrep
+    fzf
+    zoxide
+
     ## IDE
     # lunarvim
 
