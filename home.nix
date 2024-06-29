@@ -84,7 +84,6 @@
     hugo
 
     ## others
-    zoom-us
     openssl
   ];
 
