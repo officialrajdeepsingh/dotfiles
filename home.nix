@@ -1,21 +1,11 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
-  # imports = [ inputs.nixvim.homeManagerModules.nixvim ];  # Import the nixvim module, and it cannot work.
-
-  # programs.nixvim.enable = true; # enable nixvim and i face error.
-
+{ config, pkgs, inputs, ... }: {
+ 
   home.username = "officialrajdeepsingh";
   home.homeDirectory = "/home/officialrajdeepsingh";
 
   # This value determines the Home Manager release that your configuration is compatible with. This helps avoid breakage when a new Home Manager release introduces backwards incompatible changes. You should not change this value, even if you update Home Manager. If you do want to update the value, then make sure to first check the Home Manager release notes.
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
-
-  # command for install or rebuild system :  sudo nixos-rebuild switch --flake /etc/nixos/#default
 
   # Allow to install unfree package in nixos.
   nixpkgs.config.allowUnfree = true;
@@ -24,6 +14,7 @@
   home.enableNixpkgsReleaseCheck = false;
 
   home.packages = with pkgs; [
+    
     ## File Manager
     yazi
     ffmpegthumbnailer
@@ -36,12 +27,15 @@
     zoxide
 
     ## IDE
-    # lunarvim
+    neovim
+    ripgrep
+    zed-editor
 
     ## youtube music
     youtube-music
     youtube-dl
-
+    yt-dlp
+    
     ## Database and CLI (install for https://www.openstatus.dev )
     # surrealdb
     # nodePackages.prisma
@@ -50,7 +44,8 @@
     ## Browser
     google-chrome
     tor-browser
-    brave
+    # arc-browser
+    # brave
 
     ## Language
     rustup
@@ -67,6 +62,8 @@
 
     ## Terminal
     lazygit
+    warp-terminal
+    # gitbutler
     (nerdfonts.override {fonts = ["FiraCode"];})
 
     ## Utility
@@ -77,6 +74,8 @@
     curl
     unzip
     wget
+    ffmpeg_7
+    motrix
 
     ## Utility Command
     xclip
