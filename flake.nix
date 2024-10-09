@@ -13,23 +13,26 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    ## theme
+    # catppuccin.url = "github:catppuccin/nix";
+
     ## NixVim using https://github.com/elythh/nixvim flake.
-    nixvim = {
-      url = "github:elythh/nixvim";
-    };
+    # nixvim = {
+    #  url = "github:elythh/nixvim";
+    # };
 
     ## Nixvim cannot work, so I used https://github.com/elythh/nixvim flake.
+    
     # nixvim = {
     #  url = "github:nix-community/nixvim";
     #  inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    # }; 
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    nixvim,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -41,16 +44,13 @@
         ./configuration.nix
       ];
     };
-
     homeConfigurations.default = home-manager.lib.homeManagerConfiguration {
       useGlobalPkgs = true;
       useUserPackages = true;
       inherit pkgs;
       modules = [
         ./home.nix
-        # nixvim.homeManagerModules.nixvim  Import the nixvim.homeManagerModules.nixvim module to use nixvim at home.nix file, it cannot work.
       ];
-
       extraSpecialArgs = {inherit inputs;};
     };
   };
