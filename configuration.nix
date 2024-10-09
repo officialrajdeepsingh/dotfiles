@@ -1,12 +1,16 @@
-{ config, pkgs, inputs, ... }: {
-
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./services
     ./programs
   ];
-  
+
   # trusted users config for https://devenv.sh/getting-started
   nix.settings.trusted-users = ["root" "officialrajdeepsingh"];
 
@@ -24,7 +28,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Allow to install unfree vscode package in nixos.
+  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # Set your time zone.
@@ -53,7 +57,8 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # remove preinstall or  unused package in gnome
-  environment.gnome.excludePackages = with pkgs; [gnome-tour gnome.gnome-music nixos-render-docs];
+  environment.gnome.excludePackages = with pkgs; [gnome-tour gnome-music nixos-render-docs gnome-weather ];
+  
   services.xserver.excludePackages = with pkgs; [xterm];
 
   # Configure keymap in X11
@@ -74,12 +79,11 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    
+
     # If you want to use JACK applications, uncomment this
     # jack.enable = true;
     # use the example session manager (no others are packaged yet so this is enabled by default, no need to redefine it in your config for now)
     # media-session.enable = true;
-    
   };
 
   # Enable experimental-features in nixos
@@ -91,9 +95,9 @@
 
   # Define env Editor for sudo
   environment.variables = {
-    EDITOR = "lvim";
-    VISUAL = "lvim";
-    SUDO_EDITOR = "lvim";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    SUDO_EDITOR = "nvim";
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -103,11 +107,7 @@
     description = "officialrajdeepsingh";
     extraGroups = ["networkmanager" "wheel" "docker"];
     # openssh.authorizedKeys.keyFiles = [  .ssh/id_ed25519.pub ];
-    packages = with pkgs; [
-    
-      ## github:elythh/nixvim
-       inputs.nixvim.packages.${pkgs.system}.default
-    ];
+    packages = with pkgs; [];
   };
 
   # docker Config
@@ -120,19 +120,14 @@
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "officialrajdeepsingh";
-  
+
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  # Allow unfree packages
-  # nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run: $ nix search wget
-  # environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  # ];
+  # environment.systemPackages = with pkgs; [];
 
   # Some programs need SUID wrappers, can be configured further or are started in user sessions.
   # programs.mtr.enable = true;
