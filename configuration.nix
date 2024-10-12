@@ -8,7 +8,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./services
-    ./programs
   ];
 
   # trusted users config for https://devenv.sh/getting-started
@@ -71,7 +70,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  # sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -100,8 +99,12 @@
     SUDO_EDITOR = "nvim";
   };
 
+  # Enable zsh for Home manager
+  programs.zsh.enable = true;
+  programs.bash.shellInit = ''
+  echo "Rajdeep Singh"
+  '';
   # Define a user account. Don't forget to set a password with ‘passwd’.
-
   users.users.officialrajdeepsingh = {
     isNormalUser = true;
     description = "officialrajdeepsingh";
