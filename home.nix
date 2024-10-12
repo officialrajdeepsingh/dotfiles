@@ -1,5 +1,14 @@
 { config, pkgs, inputs, ... }: {
- 
+  
+  imports = [
+    ./programs
+  ];
+  
+  programs.zoxide.enable = true;
+  programs.zoxide.enableZshIntegration = true;
+programs.zoxide.options = [
+  "--cmd cd"
+];
   home.username = "officialrajdeepsingh";
   home.homeDirectory = "/home/officialrajdeepsingh";
 
@@ -24,7 +33,6 @@
     fd
     ripgrep
     fzf
-    zoxide
 
     ## IDE
     neovim
@@ -33,7 +41,7 @@
 
     ## youtube music
     youtube-music
-    youtube-dl
+    # youtube-dl is unmaintained
     yt-dlp
     
     ## Database and CLI (install for https://www.openstatus.dev )
