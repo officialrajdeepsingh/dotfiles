@@ -6,9 +6,9 @@
   
   programs.zoxide.enable = true;
   programs.zoxide.enableZshIntegration = true;
-programs.zoxide.options = [
-  "--cmd cd"
-];
+  programs.zoxide.options = [
+     "--cmd cd"
+  ];
   home.username = "officialrajdeepsingh";
   home.homeDirectory = "/home/officialrajdeepsingh";
 
@@ -33,6 +33,13 @@ programs.zoxide.options = [
     fd
     ripgrep
     fzf
+    bat
+    
+    # Terminal 
+    ptyxis
+    
+    # PassWord Manager
+    gnome-secrets
 
     ## IDE
     neovim
