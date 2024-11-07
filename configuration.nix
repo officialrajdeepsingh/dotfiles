@@ -56,7 +56,7 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # remove preinstall or  unused package in gnome
-  environment.gnome.excludePackages = with pkgs; [gnome-tour gnome-music nixos-render-docs gnome-weather ];
+  environment.gnome.excludePackages = with pkgs; [gnome-tour gnome-music nixos-render-docs gnome-weather gnome-console];
   
   services.xserver.excludePackages = with pkgs; [xterm];
 
