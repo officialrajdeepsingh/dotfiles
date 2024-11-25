@@ -9,11 +9,15 @@
         build = "sudo nixos-rebuild switch  --flake ~/nixos-config/#default";
         build-test = "sudo nixos-rebuild test --flake ~/nixos-config/#default";
       };
-#       initExtra = ''
-# # To initialize zoxide with home manager
-#
-#  eval "$(zoxide init zsh)"
-# '';
+      initExtra = ''
+# PNPM HOME Env 
+export PNPM_HOME="/home/officialrajdeepsingh/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+'';
+      completionInit = "pnpm setup";
       oh-my-zsh = {
         enable = true;
         theme = "robbyrussell";
