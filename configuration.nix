@@ -101,9 +101,7 @@
 
   # Enable zsh for Home manager
   programs.zsh.enable = true;
-  programs.bash.shellInit = ''
-  echo "Rajdeep Singh"
-  '';
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.officialrajdeepsingh = {
     isNormalUser = true;
