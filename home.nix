@@ -23,7 +23,7 @@
   home.enableNixpkgsReleaseCheck = false;
 
   home.packages = with pkgs; [
-    
+     
     ## File Manager
     yazi
     ffmpegthumbnailer
@@ -34,7 +34,7 @@
     ripgrep
     fzf
     bat
-    
+   
     # Terminal 
     ptyxis
     
@@ -45,7 +45,8 @@
     neovim
     ripgrep
     zed-editor
-
+    vscode
+    
     ## youtube music
     youtube-music
     # youtube-dl is unmaintained
@@ -59,11 +60,14 @@
     ## Browser
     google-chrome
     tor-browser
+    brave
     # arc-browser
-    # brave
+    
 
     ## Language
     rustup
+    gcc
+    rustc
     lua
     zig
     python3
@@ -79,7 +83,7 @@
     lazygit
     warp-terminal
     # gitbutler
-    (nerdfonts.override {fonts = ["FiraCode"];})
+    nerd-fonts.fira-code # (nerdfonts.override {fonts = ["FiraCode"];})
 
     ## Utility
     git
@@ -91,7 +95,9 @@
     wget
     ffmpeg_7
     motrix
-
+    # Rust packages
+    dioxus-cli
+    
     ## Utility Command
     xclip
     tree
