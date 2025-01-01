@@ -45,7 +45,7 @@ The following package is installed:
 23. nodePackages_latest.pnpm
 24. node2nix
 25. lazygit
-26. (nerdfonts.override {fonts = ["FiraCode"];})
+26. fira-code-nerdfont
 27. git
 28. gh
 29. act
