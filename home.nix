@@ -24,9 +24,10 @@
 
   home.packages = with pkgs; [
      
-    ## File Manager
+    ## Yazi File Manager + zoxide 
     yazi
-    ffmpegthumbnailer
+    ffmpeg
+    imagemagick
     unar
     jq
     poppler
@@ -62,7 +63,6 @@
     tor-browser
     brave
     # arc-browser
-    
 
     ## Language
     rustup
@@ -82,9 +82,8 @@
     ## Terminal
     lazygit
     warp-terminal
-    # gitbutler
-    nerd-fonts.fira-code # (nerdfonts.override {fonts = ["FiraCode"];})
-
+    # gitbutler 
+    
     ## Utility
     git
     gh
