@@ -1,8 +1,7 @@
-{config, pkgs, inputs,  ... }:
-{
+{config, pkgs, inputs,  ... }:{
 
    environment.systemPackages = with pkgs; [
-        auto-cpufreq
+      auto-cpufreq
    ];
 
    services.auto-cpufreq.enable = true;
