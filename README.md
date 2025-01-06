@@ -1,9 +1,11 @@
+# Dotfiles
+
 This is personally nixos configuration built using the home manager and flake.
 
-## First clone the GitHub Repository:
+## First clone the GitHub Repository
 
 ```bash
-git clone https://github.com/officialrajdeepsingh/nixos-configure.git
+git clone https://github.com/officialrajdeepsingh/dotfiles.git
 ```
 
 ## Built the NixOS configure
@@ -12,10 +14,10 @@ I built the nixos using flake, nixos rebuild and home manager with the following
 
 ```bash
 ## First, build the nixos.
-sudo nixos-rebuild switch  --flake ~/nixos-config/#default
+sudo nixos-rebuild switch  --flake ~/dotfiles/#default
 
 ## Next, install the package using the home manager.
-home-manager switch -f ~/nixos-config/home.nix
+home-manager switch -f ~/dotfiles/home.nix
 ```
 
 The following package is installed:
