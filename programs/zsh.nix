@@ -5,9 +5,10 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
-        home = "home-manager switch -f ~/nixos-config/home.nix";
-        build = "sudo nixos-rebuild switch  --flake ~/nixos-config/#default";
-        build-test = "sudo nixos-rebuild test --flake ~/nixos-config/#default";
+        home = "home-manager switch -f ~/dotfiles/home.nix";
+        build = "sudo nixos-rebuild switch  --flake ~/dotfiles/#default";
+        build-test = "sudo nixos-rebuild test --flake ~/dotfiles/#default";
+        upgrade = "nixos-rebuild switch --upgrade -f --flake ~/dotfiles/#default";
       };
       initExtra = ''
 # PNPM HOME Env 
