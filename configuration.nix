@@ -1,9 +1,5 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
+{ config, pkgs, inputs, ... }: {
+  
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -56,9 +52,13 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # remove preinstall or  unused package in gnome
-  environment.gnome.excludePackages = with pkgs; [gnome-tour gnome-music nixos-render-docs gnome-weather gnome-console];
+  environment.gnome.excludePackages = with pkgs; [gnome-tour gnome-music gnome-weather gnome-console epiphany];
   
   services.xserver.excludePackages = with pkgs; [xterm];
+
+  # Enable flatpak 
+  services.flatpak.enable = true;
+
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -125,8 +125,15 @@
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
-
-
+  
+  #---- Install Nerds Fonts ----#
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [ 
+      (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];})
+    ];
+  };
+  
   # List packages installed in system profile. To search, run: $ nix search wget
   # environment.systemPackages = with pkgs; [];
 
