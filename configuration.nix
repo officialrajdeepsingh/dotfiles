@@ -59,7 +59,6 @@
   # Enable flatpak 
   services.flatpak.enable = true;
 
-
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -126,8 +125,9 @@
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
   
-  #---- Install Nerds Fonts ----#
+  #---- Install Nerds Fonts ----#  
   fonts = {
+    fontconfig.enable = true;
     enableDefaultPackages = true;
     packages = with pkgs; [ 
       (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];})
