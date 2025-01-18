@@ -46,7 +46,7 @@
     neovim
     ripgrep
     zed-editor
-    vscode
+    # vscode
     
     ## youtube music
     youtube-music
