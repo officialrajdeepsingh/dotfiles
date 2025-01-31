@@ -1,16 +1,22 @@
-{ config, pkgs, inputs, ... }: {
+{ pkgs, ... }: {
   
   imports = [
     ./programs
   ];
+  programs = {
+     zoxide = {
+         enable = true;
+         enableZshIntegration = true;
+         enableBashIntegration = true;
+         options = [ "--cmd j"];
+     };
+   };
+
   
-  programs.zoxide.enable = true;
-  programs.zoxide.enableZshIntegration = true;
-  programs.zoxide.options = [
-     "--cmd cd"
-  ];
-  home.username = "officialrajdeepsingh";
-  home.homeDirectory = "/home/officialrajdeepsingh";
+  home = {
+     username = "officialrajdeepsingh";
+     homeDirectory = "/home/officialrajdeepsingh";
+   };
 
   # This value determines the Home Manager release that your configuration is compatible with. This helps avoid breakage when a new Home Manager release introduces backwards incompatible changes. You should not change this value, even if you update Home Manager. If you do want to update the value, then make sure to first check the Home Manager release notes.
 
@@ -23,8 +29,13 @@
   home.enableNixpkgsReleaseCheck = false;
 
   home.packages = with pkgs; [
-     
-    ## Yazi File Manager + zoxide 
+    ## Yazi File Manager + zoxide
+    # install tauri and runing pake CLI   > https://github.com/tw93/Pake
+    pkg-config
+    gobject-introspection
+    cargo-tauri
+
+    ## Yazi File Manager + zoxide
     yazi
     ffmpeg
     imagemagick
