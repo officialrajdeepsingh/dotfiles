@@ -29,6 +29,7 @@ esac
           "node"
           "rust"
           "deno"
+          "zoxide"
         ];
       };
     };
