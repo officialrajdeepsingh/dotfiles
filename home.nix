@@ -84,7 +84,7 @@
     python3
 
     ## JavaScript
-    nodejs_20
+     fnm # mange the nodejs version
     deno
     nodePackages_latest.yarn
     nodePackages_latest.pnpm
