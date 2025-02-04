@@ -1,8 +1,9 @@
-{ pkgs, ... }: {
-  
+{ pkgs, inputs, ... }: {
+
   imports = [
     ./programs
   ];
+
   programs = {
      zoxide = {
          enable = true;
@@ -10,9 +11,9 @@
          enableBashIntegration = true;
          options = [ "--cmd j"];
      };
-   };
+  };
 
-  
+
   home = {
      username = "officialrajdeepsingh";
      homeDirectory = "/home/officialrajdeepsingh";
@@ -46,24 +47,23 @@
     ripgrep
     fzf
     bat
-   
-    # Terminal 
+
+    # Terminal
     ptyxis
-    
+
     # PassWord Manager
     gnome-secrets
 
     ## IDE
-    neovim
     ripgrep
     zed-editor
     # vscode
-    
+
     ## youtube music
     youtube-music
     # youtube-dl is unmaintained
     yt-dlp
-    
+
     ## Database and CLI (install for https://www.openstatus.dev )
     # surrealdb
     # nodePackages.prisma
@@ -93,8 +93,8 @@
     ## Terminal
     lazygit
     warp-terminal
-    # gitbutler 
-    
+    # gitbutler
+
     ## Utility
     git
     gh
@@ -107,7 +107,7 @@
     motrix
     # Rust packages
     dioxus-cli
-    
+
     ## Utility Command
     xclip
     tree
