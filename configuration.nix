@@ -1,5 +1,5 @@
 { config, pkgs, inputs, ... }: {
-  
+
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -53,10 +53,9 @@
 
   # remove preinstall or  unused package in gnome
   environment.gnome.excludePackages = with pkgs; [gnome-tour gnome-music gnome-weather gnome-console epiphany];
-  
   services.xserver.excludePackages = with pkgs; [xterm];
 
-  # Enable flatpak 
+  # Enable flatpak
   services.flatpak.enable = true;
 
   # Configure keymap in X11
@@ -101,6 +100,9 @@
   # Enable zsh for Home manager
   programs.zsh.enable = true;
 
+  # List packages installed in system profile.
+  environment.systemPackages = with pkgs; [ inputs.nixvim.packages.${pkgs.system}.default ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.officialrajdeepsingh = {
     isNormalUser = true;
@@ -124,18 +126,16 @@
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
-  
-  #---- Install Nerds Fonts ----#  
+
+  #---- Install Nerds Fonts ----#
   fonts = {
     fontconfig.enable = true;
     enableDefaultPackages = true;
-    packages = with pkgs; [ 
+    packages = with pkgs; [
       (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];})
     ];
   };
-  
-  # List packages installed in system profile. To search, run: $ nix search wget
-  # environment.systemPackages = with pkgs; [];
+
 
   # Some programs need SUID wrappers, can be configured further or are started in user sessions.
   # programs.mtr.enable = true;
