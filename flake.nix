@@ -2,6 +2,7 @@
   description = "Nixos config flake";
 
   inputs = {
+
     ## NixPkgs
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-24.11";
@@ -13,20 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ## theme
-    # catppuccin.url = "github:catppuccin/nix";
+    ## NixVim
+    nixvim = {
+      url = "github:officialrajdeepsingh/nixvim-config";
+    };
 
-    ## NixVim using https://github.com/elythh/nixvim flake.
-    # nixvim = {
-    #  url = "github:elythh/nixvim";
-    # };
-
-    ## Nixvim cannot work, so I used https://github.com/elythh/nixvim flake.
-    
-    # nixvim = {
-    #  url = "github:nix-community/nixvim";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    # }; 
   };
 
   outputs = {
