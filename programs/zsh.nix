@@ -11,12 +11,15 @@
         upgrade = "nixos-rebuild switch --upgrade -f --flake ~/dotfiles/#default";
       };
       initExtra = ''
-# PNPM HOME Env 
+# PNPM HOME Env
 export PNPM_HOME="/home/officialrajdeepsingh/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+# FNM Manage the Node version
+eval "$(fnm env --use-on-cd --shell zsh)"
 '';
       completionInit = "pnpm setup";
       oh-my-zsh = {
