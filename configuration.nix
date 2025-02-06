@@ -103,6 +103,12 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [ inputs.nixvim.packages.${pkgs.system}.default ];
 
+  # install Nix-ld
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+   fnm 
+  ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.officialrajdeepsingh = {
     isNormalUser = true;

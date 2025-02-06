@@ -84,7 +84,7 @@
     python3
 
     ## JavaScript
-     fnm # mange the nodejs version
+    fnm # mange the nodejs version
     deno
     nodePackages_latest.yarn
     nodePackages_latest.pnpm
