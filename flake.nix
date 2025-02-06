@@ -18,13 +18,15 @@
     nixvim = {
       url = "github:officialrajdeepsingh/nixvim-config";
     };
-
+    # nix-ld = {
+    #  url = "github:Mic92/nix-ld";
+    # };
   };
 
   outputs = {
     self,
     nixpkgs,
-    home-manager,
+    home-manager, 
     ...
   } @ inputs: let
     system = "x86_64-linux";
