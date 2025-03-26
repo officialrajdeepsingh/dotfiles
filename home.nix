@@ -30,6 +30,9 @@
   home.enableNixpkgsReleaseCheck = false;
 
   home.packages = with pkgs; [
+    # Rest API
+    insomnia
+
     ## Yazi File Manager + zoxide
     # install tauri and runing pake CLI   > https://github.com/tw93/Pake
     pkg-config
@@ -51,18 +54,10 @@
     # Terminal
     ptyxis
 
-    # PassWord Manager
-    gnome-secrets
-
     ## IDE
     ripgrep
     zed-editor
-    # vscode
 
-    ## youtube music
-    youtube-music
-    # youtube-dl is unmaintained
-    yt-dlp
 
     ## Database and CLI (install for https://www.openstatus.dev )
     # surrealdb
