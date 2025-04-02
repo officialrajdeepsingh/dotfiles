@@ -5,13 +5,13 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
-        home = "home-manager switch --flake ~/dotfiles/home.nix";
+        home = "home-manager switch -f ~/dotfiles/home.nix";
         build = "sudo nixos-rebuild switch  --flake ~/dotfiles/#default";
         build-test = "sudo nixos-rebuild test --flake ~/dotfiles/#default";
         upgrade = "sudo nixos-rebuild switch --upgrade  --flake ~/dotfiles/#default";
         rm-home = "home-manager  remove-generations";
         li-home = "home-manager  generations";
-        rm-nixos = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations"; 
+        rm-nixos = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations";
         li-nixos = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
       };
       initExtra = ''
