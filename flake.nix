@@ -1,5 +1,5 @@
 {
-  description = "Nixos config flake";
+  description = "NixOS config flake";
 
   inputs = {
 
@@ -16,36 +16,55 @@
 
     ## NixVim
     nixvim = {
-      url = "github:officialrajdeepsingh/nixvim-config";
+      url = "github:officialrajdeepsingh/nixvim-dotfiles";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nix-ld = {
-    #  url = "github:Mic92/nix-ld";
-    # };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager, 
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-  in {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./configuration.nix
-      ];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      lib = nixpkgs.lib;
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      # For Home Manager
+      extraSpecialArgs = {
+        inherit system;
+        inherit inputs;
+      };
+
+      # For NixOS
+      specialArgs = {
+        inherit system;
+        inherit inputs;
+      };
+
+    in
+    {
+
+      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+        inherit specialArgs;
+        modules = [
+          ./configuration.nix
+        ];
+      };
+
+      homeConfigurations.default = home-manager.lib.homeManagerConfiguration {
+
+        pkgs = nixpkgs.legacyPackages.${system};
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        modules = [ ./home.nix ];
+        inherit extraSpecialArgs; # Ensure inputs is passed
+      };
     };
-    homeConfigurations.default = home-manager.lib.homeManagerConfiguration {
-      useGlobalPkgs = true;
-      useUserPackages = true;
-      inherit pkgs;
-      modules = [
-        ./home.nix
-      ];
-      extraSpecialArgs = {inherit inputs;};
-    };
-  };
 }
