@@ -1,23 +1,23 @@
-{ pkgs, inputs, ... }: {
+{ inputs, pkgs, ... }:
+{
 
   imports = [
     ./programs
   ];
 
   programs = {
-     zoxide = {
-         enable = true;
-         enableZshIntegration = true;
-         enableBashIntegration = true;
-         options = [ "--cmd j"];
-     };
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+      enableBashIntegration = true;
+      options = [ "--cmd j" ];
+    };
   };
 
-
   home = {
-     username = "officialrajdeepsingh";
-     homeDirectory = "/home/officialrajdeepsingh";
-   };
+    username = "officialrajdeepsingh";
+    homeDirectory = "/home/officialrajdeepsingh";
+  };
 
   # This value determines the Home Manager release that your configuration is compatible with. This helps avoid breakage when a new Home Manager release introduces backwards incompatible changes. You should not change this value, even if you update Home Manager. If you do want to update the value, then make sure to first check the Home Manager release notes.
 
@@ -30,6 +30,10 @@
   home.enableNixpkgsReleaseCheck = false;
 
   home.packages = with pkgs; [
+
+    # nixos docs
+    nixos-render-docs
+
     # Rest API
     insomnia
 
@@ -57,7 +61,6 @@
     ## IDE
     ripgrep
     zed-editor
-
 
     ## Database and CLI (install for https://www.openstatus.dev )
     # surrealdb
