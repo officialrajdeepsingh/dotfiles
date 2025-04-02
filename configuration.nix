@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }: {
+{
+  pkgs,
+  inputs,
+  ...
+}:
+{
 
   imports = [
     # Include the results of the hardware scan.
@@ -7,7 +12,10 @@
   ];
 
   # trusted users config for https://devenv.sh/getting-started
-  nix.settings.trusted-users = ["root" "officialrajdeepsingh"];
+  nix.settings.trusted-users = [
+    "root"
+    "officialrajdeepsingh"
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -52,8 +60,14 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # remove preinstall or  unused package in gnome
-  environment.gnome.excludePackages = with pkgs; [gnome-tour gnome-music gnome-weather gnome-console epiphany];
-  services.xserver.excludePackages = with pkgs; [xterm];
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-tour
+    gnome-music
+    gnome-weather
+    gnome-console
+    epiphany
+  ];
+  services.xserver.excludePackages = with pkgs; [ xterm ];
 
   # Enable flatpak
   services.flatpak.enable = true;
@@ -84,11 +98,14 @@
   };
 
   # Enable experimental-features in nixos
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # change the deafult bash Shell to zsh shell
   users.defaultUserShell = pkgs.zsh;
-  environment.shells = with pkgs; [zsh];
+  environment.shells = with pkgs; [ zsh ];
 
   # Define env Editor for sudo
   environment.variables = {
@@ -101,21 +118,32 @@
   programs.zsh.enable = true;
 
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [ inputs.nixvim.packages.${pkgs.system}.default ];
+  environment.systemPackages = with pkgs; [
+    bash-language-server
+    dockerfile-language-server-nodejs
+    vscode-langservers-extracted
+    tailwindcss-language-server
+  ];
 
   # install Nix-ld
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-   fnm 
+    fnm
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.officialrajdeepsingh = {
     isNormalUser = true;
     description = "officialrajdeepsingh";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     # openssh.authorizedKeys.keyFiles = [  .ssh/id_ed25519.pub ];
-    packages = with pkgs; [];
+    packages = [
+      inputs.nixvim.packages.${pkgs.system}.default # # Nixvim
+    ];
   };
 
   # docker Config
@@ -124,10 +152,6 @@
     enable = true;
     setSocketVariable = true;
   };
-
-  # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "officialrajdeepsingh";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
@@ -138,10 +162,15 @@
     fontconfig.enable = true;
     enableDefaultPackages = true;
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];})
+      (nerdfonts.override {
+        fonts = [
+          "FiraCode"
+          "DroidSansMono"
+          "JetBrainsMono"
+        ];
+      })
     ];
   };
-
 
   # Some programs need SUID wrappers, can be configured further or are started in user sessions.
   # programs.mtr.enable = true;
