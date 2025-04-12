@@ -30,7 +30,9 @@
   home.enableNixpkgsReleaseCheck = false;
 
   home.packages = with pkgs; [
+    # Kubernetes
 
+    kubectl
     # nixos docs
     nixos-render-docs
 
@@ -110,6 +112,7 @@
     xclip
     tree
     hugo
+    glow
 
     ## others
     openssl
