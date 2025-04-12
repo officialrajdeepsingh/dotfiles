@@ -102,7 +102,21 @@
     "nix-command"
     "flakes"
   ];
+  # podman
 
+  # Enable common container config files in /etc/containers
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      # dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
   # change the deafult bash Shell to zsh shell
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
@@ -119,10 +133,16 @@
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
+    # server
     bash-language-server
     dockerfile-language-server-nodejs
     vscode-langservers-extracted
     tailwindcss-language-server
+    # Podman
+    dive # look into docker image layers
+    podman-tui # status of containers in the terminal
+    # docker-compose # start group of containers for dev
+    # podman-compose # start group of containers for dev
   ];
 
   # install Nix-ld
