@@ -30,9 +30,10 @@
   home.enableNixpkgsReleaseCheck = false;
 
   home.packages = with pkgs; [
-    # Kubernetes
 
+    # Kubernetes
     kubectl
+
     # nixos docs
     nixos-render-docs
 
@@ -63,6 +64,7 @@
     ## IDE
     ripgrep
     zed-editor
+    jetbrains-toolbox
 
     ## Database and CLI (install for https://www.openstatus.dev )
     # surrealdb
@@ -73,7 +75,6 @@
     google-chrome
     tor-browser
     brave
-    # arc-browser
 
     ## Language
     rustup
@@ -93,7 +94,6 @@
     ## Terminal
     lazygit
     warp-terminal
-    # gitbutler
 
     ## Utility
     git
@@ -105,6 +105,7 @@
     wget
     ffmpeg_7
     motrix
+
     # Rust packages
     dioxus-cli
 
