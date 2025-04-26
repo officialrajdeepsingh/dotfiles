@@ -66,6 +66,8 @@
     gnome-weather
     gnome-console
     epiphany
+    gnome-contacts
+    geary
   ];
   services.xserver.excludePackages = with pkgs; [ xterm ];
 
