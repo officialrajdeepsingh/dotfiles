@@ -58,13 +58,9 @@
     fzf
     bat
 
-    # Terminal
-    ptyxis
-
     ## IDE
     ripgrep
     zed-editor
-    jetbrains-toolbox
 
     ## Database and CLI (install for https://www.openstatus.dev )
     # surrealdb
@@ -104,7 +100,6 @@
     unzip
     wget
     ffmpeg_7
-    motrix
 
     # Rust packages
     dioxus-cli
@@ -114,6 +109,7 @@
     tree
     hugo
     glow
+    nixpacks
 
     ## others
     openssl
