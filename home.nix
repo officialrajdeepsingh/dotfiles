@@ -100,6 +100,7 @@
     unzip
     wget
     ffmpeg_7
+    yt-dlp
 
     # Rust packages
     dioxus-cli
