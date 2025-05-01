@@ -31,6 +31,11 @@
 
   home.packages = with pkgs; [
 
+
+    # Build Environments
+    devbox
+    devenv
+
     # AI model
     ollama
     lmstudio
