@@ -31,6 +31,10 @@
 
   home.packages = with pkgs; [
 
+    # AI model
+    ollama
+    lmstudio
+
     # Kubernetes
     kubectl
 
