@@ -31,7 +31,6 @@
 
   home.packages = with pkgs; [
 
-
     # Build Environments
     devbox
     devenv
@@ -88,6 +87,7 @@
     lua
     zig
     python3
+    gnome-tweaks
 
     ## JavaScript
     fnm # mange the nodejs version
@@ -102,6 +102,7 @@
 
     ## Utility
     git
+    git-lfs # Git extension
     gh
     act
     unzip
