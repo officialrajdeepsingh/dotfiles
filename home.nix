@@ -31,6 +31,9 @@
 
   home.packages = with pkgs; [
 
+    ## Password manager
+    gnome-secrets
+
     # Build Environments
     devbox
     devenv
