@@ -71,7 +71,6 @@
 
     ## IDE
     ripgrep
-    zed-editor
 
     ## Database and CLI (install for https://www.openstatus.dev )
     # surrealdb
