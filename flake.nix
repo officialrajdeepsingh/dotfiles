@@ -1,11 +1,11 @@
 {
-  description = "NixOS config flake";
+  description = "Personal NixOS configuration flake build for daily use.";
 
   inputs = {
 
     ## NixPkgs
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-24.11";
+      url = "github:nixos/nixpkgs/nixos-25.05";
     };
 
     ## Home Manager
@@ -15,26 +15,21 @@
     };
 
     ## NixVim
-    nixvim = {
-      url = "github:officialrajdeepsingh/nixvim-dotfiles";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixvim = {
+    #   url = "github:officialrajdeepsingh/nixvim-dotfiles/297e2adf4e3d69acb422a990b59940bb59bfced2";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
   };
 
   outputs =
     {
-      self,
       nixpkgs,
       home-manager,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
-      lib = nixpkgs.lib;
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
 
       # For Home Manager
       extraSpecialArgs = {
@@ -59,11 +54,12 @@
       };
 
       homeConfigurations.default = home-manager.lib.homeManagerConfiguration {
-
         pkgs = nixpkgs.legacyPackages.${system};
         useGlobalPkgs = true;
         useUserPackages = true;
-        modules = [ ./home.nix ];
+        modules = [
+          ./home.nix
+        ];
         inherit extraSpecialArgs; # Ensure inputs is passed
       };
     };

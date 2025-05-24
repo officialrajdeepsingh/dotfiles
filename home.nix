@@ -1,4 +1,7 @@
-{ inputs, pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 {
 
   imports = [
@@ -31,6 +34,9 @@
 
   home.packages = with pkgs; [
 
+    # Zed Editor
+    zed-editor
+
     ## Password manager
     gnome-secrets
 
@@ -51,8 +57,7 @@
     # Rest API
     insomnia
 
-    ## Yazi File Manager + zoxide
-    # install tauri and runing pake CLI   > https://github.com/tw93/Pake
+    ## Yazi File Manager + zoxide > install tauri and runing pake CLI   > https://github.com/tw93/Pake
     pkg-config
     gobject-introspection
     cargo-tauri

@@ -85,7 +85,7 @@
 
   # Enable sound with pipewire.
   # sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  # services.pulseaudio.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -104,9 +104,7 @@
     "nix-command"
     "flakes"
   ];
-  # podman
-
-  # Enable common container config files in /etc/containers
+  # podman: Enable common container config files in /etc/containers
   virtualisation.containers.enable = true;
   virtualisation = {
     podman = {
@@ -135,7 +133,9 @@
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
+
     # server
+    nixd
     bash-language-server
     dockerfile-language-server-nodejs
     vscode-langservers-extracted
@@ -162,10 +162,9 @@
       "wheel"
       "docker"
     ];
-    # openssh.authorizedKeys.keyFiles = [  .ssh/id_ed25519.pub ];
-    packages = [
-      inputs.nixvim.packages.${pkgs.system}.default # # Nixvim
-    ];
+    # packages = [
+    #   inputs.nixvim.packages.${pkgs.system}.default # # Nixvim
+    # ];
   };
 
   # docker Config
@@ -184,13 +183,9 @@
     fontconfig.enable = true;
     enableDefaultPackages = true;
     packages = with pkgs; [
-      (nerdfonts.override {
-        fonts = [
-          "FiraCode"
-          "DroidSansMono"
-          "JetBrainsMono"
-        ];
-      })
+      nerd-fonts.fira-code
+      nerd-fonts.droid-sans-mono
+      nerd-fonts.jetbrains-mono
     ];
   };
 
