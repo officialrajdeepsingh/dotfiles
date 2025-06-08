@@ -44,10 +44,6 @@
     devbox
     devenv
 
-    # AI model
-    ollama
-    lmstudio
-
     # Kubernetes
     kubectl
 
