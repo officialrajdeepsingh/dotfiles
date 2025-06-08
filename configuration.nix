@@ -67,6 +67,8 @@
     gnome-console
     epiphany
     gnome-contacts
+    gnome-characters
+    totem
     geary
   ];
   services.xserver.excludePackages = with pkgs; [ xterm ];
