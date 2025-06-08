@@ -34,7 +34,7 @@
 
   home.packages = with pkgs; [
 
-    # Zed Editor
+    # Editor
     zed-editor
 
     ## Password manager
