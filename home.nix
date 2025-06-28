@@ -42,7 +42,7 @@
 
     # Build Environments
     devbox
-    devenv
+    # devenv
 
     # Kubernetes
     kubectl
