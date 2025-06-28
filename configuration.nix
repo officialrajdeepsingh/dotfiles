@@ -135,7 +135,7 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
 
-    # server
+    # Language server
     nixd
     bash-language-server
     dockerfile-language-server-nodejs
