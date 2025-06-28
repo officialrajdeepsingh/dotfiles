@@ -18,8 +18,8 @@
 # PNPM HOME Env
 export PNPM_HOME="/home/officialrajdeepsingh/.local/share/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*);
-  *) export PATH="$PNPM_HOME:$PATH";
+  *":$PNPM_HOME:"*)  ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
 # FNM Manage the Node version
