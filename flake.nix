@@ -5,7 +5,7 @@
 
     ## NixPkgs
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-25.05";
+      url = "github:nixos/nixpkgs/nixos-unstable";
     };
 
     ## Home Manager
