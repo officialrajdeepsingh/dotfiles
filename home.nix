@@ -153,7 +153,7 @@
   #  /etc/profiles/per-user/officialrajdeepsingh/etc/profile.d/hm-session-vars.sh
 
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = "zeditor";
   };
 
   # Let Home Manager install and manage itself.

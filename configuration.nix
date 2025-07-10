@@ -124,9 +124,9 @@
 
   # Define env Editor for sudo
   environment.variables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-    SUDO_EDITOR = "nvim";
+    EDITOR = "zeditor";
+    VISUAL = "zeditor";
+    SUDO_EDITOR = "zeditor";
   };
 
   # Enable zsh for Home manager
