@@ -23,7 +23,6 @@
   };
 
   # This value determines the Home Manager release that your configuration is compatible with. This helps avoid breakage when a new Home Manager release introduces backwards incompatible changes. You should not change this value, even if you update Home Manager. If you do want to update the value, then make sure to first check the Home Manager release notes.
-
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   # Allow to install unfree package in nixos.
@@ -34,48 +33,26 @@
 
   home.packages = with pkgs; [
 
-    # Editor
+    ## Editor
     zed-editor
 
     ## Password manager
     gnome-secrets
 
-    # Build Environments
-    devbox
+    ## Build Environments
+    # devbox
     # devenv
 
-    # Kubernetes
+    ## Kubernetes
     kubectl
 
-    # nixos docs
+    ## nixos docs
     nixos-render-docs
 
-    # Rest API
+    ## Rest API
     insomnia
 
-    ## Yazi File Manager + zoxide > install tauri and runing pake CLI   > https://github.com/tw93/Pake
-    pkg-config
-    gobject-introspection
-    cargo-tauri
-
-    ## Yazi File Manager + zoxide
-    yazi
-    ffmpeg
-    imagemagick
-    unar
-    jq
-    poppler
-    fd
-    ripgrep
-    fzf
-    bat
-
-    ## IDE
-    ripgrep
-
     ## Database and CLI (install for https://www.openstatus.dev )
-    # surrealdb
-    # nodePackages.prisma
     turso-cli
 
     ## Browser
@@ -90,14 +67,12 @@
     lua
     zig
     python3
-    gnome-tweaks
 
     ## JavaScript
     fnm # mange the nodejs version
     deno
     nodePackages_latest.yarn
     nodePackages_latest.pnpm
-    node2nix
 
     ## Terminal
     lazygit
@@ -114,6 +89,13 @@
     wget
     ffmpeg_7
     yt-dlp
+    jq
+    fd
+    ripgrep
+    fzf
+    bat
+    pkg-config
+    gobject-introspection
 
     # Rust packages
     dioxus-cli
@@ -121,23 +103,21 @@
     ## Utility Command
     xclip
     tree
-    hugo
     glow
     nixpacks
 
     ## others
     openssl
+    gnome-tweaks
+
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage plain files is through 'home.file'.
 
   home.file = {
     # Building this configuration will create a copy of 'dotfiles/screenrc' in the Nix store. Activating the configuration will then make '~/.screenrc' a symlink to the Nix store copy.
-
     # ".screenrc".source = dotfiles/screenrc;
-
     # You can also set the file content immediately.
-
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
