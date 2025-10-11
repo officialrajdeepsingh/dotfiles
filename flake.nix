@@ -14,23 +14,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    ## NixVim
-    # nixvim = {
-    #   url = "github:officialrajdeepsingh/nixvim-dotfiles/297e2adf4e3d69acb422a990b59940bb59bfced2";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    # nixvim = {
-    #   url = "github:nix-community/nixvim";
-    #   nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    #
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
       nixpkgs,
       home-manager,
+      nvf,
       ...
     }@inputs:
     let
@@ -58,11 +52,10 @@
         ];
       };
 
-      homeConfigurations.default = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."officialrajdeepsingh@nixos" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
-        useGlobalPkgs = true;
-        useUserPackages = true;
         modules = [
+          nvf.homeManagerModules.default # <- this imports the home-manager module that provides the options
           ./home.nix
         ];
         inherit extraSpecialArgs; # Ensure inputs is passed
