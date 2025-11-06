@@ -37,6 +37,9 @@
     zed-editor
     helix
 
+    ## Image editor
+    gradia
+
     ## Password manager
     gnome-secrets
 
