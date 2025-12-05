@@ -104,6 +104,10 @@
     "nix-command"
     "flakes"
   ];
+  # Install GnuPG
+  programs.gnupg.agent.enable = true;
+  programs.gnupg.agent.enableSSHSupport = true;
+
   # podman: Enable common container config files in /etc/containers
   virtualisation.containers.enable = true;
   virtualisation = {
