@@ -13,6 +13,7 @@
         li-home = "home-manager  generations";
         rm-nixos = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations";
         li-nixos = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
+        nix-collect-garbage = "nix-collect-garbage";
       };
       initContent = ''
         # PNPM HOME Env
