@@ -33,6 +33,9 @@
 
   home.packages = with pkgs; [
 
+    # youtube
+    freetube
+
     ## Editor
     zed-editor
     helix
