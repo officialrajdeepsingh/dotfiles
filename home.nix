@@ -33,6 +33,9 @@
 
   home.packages = with pkgs; [
 
+    # Screen record
+    kooha
+    
     # Ghost CMS
     ghost-cli
     python313Packages.setuptools
