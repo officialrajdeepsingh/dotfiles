@@ -33,6 +33,11 @@
 
   home.packages = with pkgs; [
 
+    # Ghost CMS
+    ghost-cli
+    python313Packages.setuptools
+    sqlite
+
     # youtube
     freetube
 
