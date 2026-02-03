@@ -141,7 +141,7 @@
     # Language server
     nixd
     bash-language-server
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
     vscode-langservers-extracted
     tailwindcss-language-server
     # Podman
