@@ -34,8 +34,8 @@
   home.packages = with pkgs; [
 
     # Screen record
-    kooha
-    
+    obs-studio
+
     # Ghost CMS
     ghost-cli
     python313Packages.setuptools
@@ -47,6 +47,7 @@
     ## Editor
     zed-editor
     helix
+    vscode
 
     ## Image editor
     gradia
