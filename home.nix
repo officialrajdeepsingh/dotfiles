@@ -118,7 +118,7 @@
     gobject-introspection
 
     # Rust packages
-    dioxus-cli
+    # dioxus-cli
 
     ## Utility Command
     xclip
