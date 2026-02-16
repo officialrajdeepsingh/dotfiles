@@ -33,6 +33,10 @@
 
   home.packages = with pkgs; [
 
+
+    # Python
+    uv
+
     # Screen record
     obs-studio
 

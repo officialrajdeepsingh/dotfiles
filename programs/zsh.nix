@@ -9,6 +9,7 @@
         build = "sudo nixos-rebuild switch  --flake ~/dotfiles/#default";
         build-test = "sudo nixos-rebuild test --flake ~/dotfiles/#default";
         upgrade = "sudo nixos-rebuild switch --upgrade  --flake ~/dotfiles/#default";
+        flake-update= "nix flake update";
         rm-home = "home-manager  remove-generations";
         li-home = "home-manager  generations";
         rm-nixos = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations";
