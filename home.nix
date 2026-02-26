@@ -45,12 +45,9 @@
     python313Packages.setuptools
     sqlite
 
-    # youtube
-    freetube
 
     ## Editor
     zed-editor
-    helix
     vscode
 
     ## Image editor
