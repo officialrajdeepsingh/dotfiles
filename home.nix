@@ -88,6 +88,7 @@
     ## JavaScript
     fnm # mange the nodejs version
     deno
+    bun
     nodePackages_latest.yarn
     nodePackages_latest.pnpm
 
