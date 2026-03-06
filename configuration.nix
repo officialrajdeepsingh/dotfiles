@@ -125,12 +125,6 @@
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
 
-  # Define env Editor for sudo
-  environment.variables = {
-    EDITOR = "code";
-    VISUAL = "code";
-    SUDO_EDITOR = "code";
-  };
 
   # Enable zsh for Home manager
   programs.zsh.enable = true;
@@ -149,7 +143,24 @@
     podman-tui # status of containers in the terminal
     # docker-compose # start group of containers for dev
     # podman-compose # start group of containers for dev
+
+    # fix: "Your GStreamer installation is missing a plug-in." issue in gnome audio player.
+    gst_all_1.gstreamer
+    gst_all_1.gst-plugins-base
+    gst_all_1.gst-plugins-good
+    gst_all_1.gst-plugins-bad
+    gst_all_1.gst-plugins-ugly
+    gst_all_1.gst-libav
+    gst_all_1.gst-vaapi
   ];
+
+  # Define env Editor for sudo
+  environment.variables = {
+    EDITOR = "code";
+    VISUAL = "code";
+    SUDO_EDITOR = "code";
+    GST_PLUGIN_PATH = "/run/current-system/sw/lib/gstreamer-1.0/";
+  };
 
   # install Nix-ld
   programs.nix-ld.enable = true;
