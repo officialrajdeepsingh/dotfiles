@@ -34,7 +34,9 @@
   home.packages = with pkgs; [
 
     # Video editor
-    openshot-qt
+    kdePackages.kdenlive
+    frei0r  # Optional: for additional effects in kdenlive
+
     # Python
     uv
 
