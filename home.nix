@@ -33,7 +33,8 @@
 
   home.packages = with pkgs; [
 
-
+    # Video editor
+    openshot-qt
     # Python
     uv
 
