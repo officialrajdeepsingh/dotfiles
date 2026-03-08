@@ -60,8 +60,8 @@
     gnome-secrets
 
     ## Build Environments
-    # devbox
-    # devenv
+    devbox
+    devenv
 
     ## Kubernetes
     kubectl
