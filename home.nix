@@ -42,7 +42,7 @@
 
     # Ghost CMS
     ghost-cli
-    sqlite
+    # sqlite
 
 
     ## Editor
@@ -82,9 +82,9 @@
     rustc
     lua
     zig
-    (python3.withPackages (ps: [ ps.setuptools ])) # python 
-    
-
+    # (python3.withPackages (ps: [ ps.setuptools ])) # python 
+    python3
+    python312Packages.setuptools
     uv # https://docs.astral.sh/uv/
 
 
@@ -94,6 +94,7 @@
     bun
     yarn
     pnpm
+    python313Packages.pip
 
     ## Terminal
     lazygit
