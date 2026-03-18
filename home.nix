@@ -82,8 +82,8 @@
     rustc
     lua
     zig
-    python3 
-    python313Packages.setuptools
+    (python3.withPackages (ps: [ ps.setuptools ])) # python 
+    
 
     uv # https://docs.astral.sh/uv/
 
