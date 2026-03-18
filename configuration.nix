@@ -204,6 +204,11 @@
     ];
   };
 
+  # add unprivileged_port for ghost local development.
+  boot.kernel.sysctl = {
+  "net.ipv4.ip_unprivileged_port_start" = 80;
+  };
+
   # Some programs need SUID wrappers, can be configured further or are started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {

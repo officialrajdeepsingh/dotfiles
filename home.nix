@@ -37,7 +37,7 @@
     kdePackages.kdenlive
     frei0r  # Optional: for additional effects in kdenlive
 
-    # Python
+    Python # use to install ghost
     uv
 
     # Screen record
@@ -45,7 +45,6 @@
 
     # Ghost CMS
     ghost-cli
-    python313Packages.setuptools
     sqlite
 
 
@@ -86,7 +85,7 @@
     rustc
     lua
     zig
-    python3
+    (python3.withPackages (ps: [ ps.setuptools ]))
 
     ## JavaScript
     fnm # mange the nodejs version
