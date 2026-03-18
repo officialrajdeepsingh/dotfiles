@@ -37,9 +37,6 @@
     kdePackages.kdenlive
     frei0r  # Optional: for additional effects in kdenlive
 
-    Python # use to install ghost
-    uv
-
     # Screen record
     obs-studio
 
@@ -85,7 +82,11 @@
     rustc
     lua
     zig
-    (python3.withPackages (ps: [ ps.setuptools ]))
+    python3 
+    python313Packages.setuptools
+
+    uv # https://docs.astral.sh/uv/
+
 
     ## JavaScript
     fnm # mange the nodejs version
