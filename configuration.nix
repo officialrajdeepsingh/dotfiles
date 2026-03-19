@@ -131,7 +131,7 @@
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-
+    putty
     # Language server
     nixd
     bash-language-server
