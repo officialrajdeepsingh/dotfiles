@@ -119,6 +119,7 @@
     bat
     pkg-config
     gobject-introspection
+    putty
 
     # Rust packages
     # dioxus-cli
