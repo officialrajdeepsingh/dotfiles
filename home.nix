@@ -155,7 +155,7 @@
   #  /etc/profiles/per-user/officialrajdeepsingh/etc/profile.d/hm-session-vars.sh
 
   home.sessionVariables = {
-    EDITOR = "zeditor";
+    EDITOR = "code";
   };
 
   # Let Home Manager install and manage itself.
