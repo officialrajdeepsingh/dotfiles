@@ -7,7 +7,9 @@
   imports = [
     ./programs
   ];
+
   programs.codex.enable = true;
+  
   programs = {
     zoxide = {
       enable = true;
