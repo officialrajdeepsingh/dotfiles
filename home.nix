@@ -82,9 +82,11 @@
     rustc
     lua
     zig
-    # (python3.withPackages (ps: [ ps.setuptools ])) # python 
-    python3
-    python3Packages.setuptools
+    # Install python and python setuptools
+    (python3.withPackages (ps: with ps; [
+      setuptools
+      # other packages...
+    ]))
     uv # https://docs.astral.sh/uv/
 
 
@@ -94,7 +96,6 @@
     bun
     yarn
     pnpm
-    python313Packages.pip
 
     ## Terminal
     lazygit
