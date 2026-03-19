@@ -84,7 +84,7 @@
     zig
     # (python3.withPackages (ps: [ ps.setuptools ])) # python 
     python3
-    python312Packages.setuptools
+    python3Packages.setuptools
     uv # https://docs.astral.sh/uv/
 
 
