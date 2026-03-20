@@ -129,9 +129,17 @@
   # Enable zsh for Home manager
   programs.zsh.enable = true;
 
+  # Enable dconf (required for GSettings) for SSH (putty)
+  programs.dconf.enable = true;
+
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
+    
+    # Add the base GTK schemas SSH (putty)
     putty
+    gsettings-desktop-schemas
+    gtk3 # Provides the missing org.gtk.Settings.FileChooser schema
+
     # Language server
     nixd
     bash-language-server
