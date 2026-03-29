@@ -44,6 +44,9 @@
 
   home.packages = with pkgs; [
 
+    # Password Manager
+    pass
+
     # Video editor
     kdePackages.kdenlive
     frei0r  # Optional: for additional effects in kdenlive
