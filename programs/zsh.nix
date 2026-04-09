@@ -9,12 +9,12 @@
         build = "sudo nixos-rebuild switch  --flake ~/dotfiles/#default";
         build-test = "sudo nixos-rebuild test --flake ~/dotfiles/#default";
         upgrade = "sudo nixos-rebuild switch --upgrade  --flake ~/dotfiles/#default";
-        flake-update= "nix flake update";
+        flake-update= "nix flake update --flake  ~/dotfiles";
         rm-home = "home-manager  remove-generations";
         li-home = "home-manager  generations";
         rm-nixos = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations";
         li-nixos = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
-        nix-collect-garbage = "nix-collect-garbage";
+        rm-garbage = "nix-collect-garbage";
         gemini = "pnpm dlx  @google/gemini-cli@latest";
         putty = "XDG_DATA_DIRS=\$XDG_DATA_DIRS:$(nix-build --no-out-link '<nixpkgs>' -A gtk3)/share/gsettings-schemas/gtk+3-3.24.41/ putty";
       };

@@ -1,27 +1,71 @@
 # NixOS Dotfiles
 
-This is a personal NixOS configuration built using Home Manager and Flake.
+Personal NixOS configuration using Flakes + Home Manager.
 
-## First clone the GitHub Repository
+## Repository layout
+
+- `flake.nix` - flake entry point and outputs
+- `configuration.nix` - system-level NixOS config
+- `home.nix` - user-level Home Manager config
+- `programs/` - modular Home Manager program config
+- `services/` - modular NixOS service config
+
+## Flake outputs
+
+- `nixosConfigurations.default`
+- `homeConfigurations."officialrajdeepsingh@nixos"`
+
+## Quick start
 
 ```bash
-git clone https://github.com/officialrajdeepsingh/dotfiles.git
+git clone https://github.com/officialrajdeepsingh/dotfiles.git ~/dotfiles
+cd ~/dotfiles
 ```
 
-## Built the NixOS configure
-
-I built the NixOS using Flake, and Home Manager and ran the following command to complete the NixOS setup.
+Apply system configuration:
 
 ```bash
-## First, build the nixos.
-sudo nixos-rebuild switch  --flake ~/dotfiles/#default
-
-## Next, install the package using the home manager.
-home-manager switch -f ~/dotfiles/home.nix
+sudo nixos-rebuild switch --flake ~/dotfiles/#default
 ```
 
-Check which package is installed:
+Apply Home Manager configuration:
+
+```bash
+home-manager switch --flake ~/dotfiles#officialrajdeepsingh@nixos
+```
+
+## Useful commands
+
+Test NixOS config without persisting:
+
+```bash
+sudo nixos-rebuild test --flake ~/dotfiles/#default
+```
+
+Update flake inputs:
+
+```bash
+nix flake update --flake ~/dotfiles
+```
+
+Upgrade and switch system:
+
+```bash
+sudo nixos-rebuild switch --upgrade --flake ~/dotfiles/#default
+```
+
+List installed system packages:
 
 ```bash
 nix-store --query --requisites /run/current-system | cut -d- -f2- | sort | uniq
+```
+
+## Shell aliases (from `programs/zsh.nix`)
+
+```bash
+home         # home-manager switch --flake ~/dotfiles#officialrajdeepsingh@nixos
+build        # sudo nixos-rebuild switch --flake ~/dotfiles/#default
+build-test   # sudo nixos-rebuild test --flake ~/dotfiles/#default
+upgrade      # sudo nixos-rebuild switch --upgrade --flake ~/dotfiles/#default
+flake-update # nix flake update --flake ~/dotfiles
 ```
