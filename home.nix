@@ -33,15 +33,6 @@
   # Using mismatched versions nixos and home manager.
   home.enableNixpkgsReleaseCheck = false;
 
-  # Home Manager to set up the entire GTK environment for putty
-  gtk = {
-    enable = true;
-    theme = {
-      package = pkgs.gnome-themes-extra;
-      name = "Adwaita";
-    };
-  };
-
   home.packages = with pkgs; [
 
     # Password Manager
