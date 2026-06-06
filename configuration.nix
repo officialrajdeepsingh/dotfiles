@@ -162,7 +162,7 @@
     GST_PLUGIN_PATH = "/run/current-system/sw/lib/gstreamer-1.0/";
   };
 
-  # install Nix-ld
+  # install Nix-ld: To allow these pre-compiled binaries to execute smoothly without manual patching, ensure nix-ld is active in your /etc/nixos/configuration.nix:
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     fnm
