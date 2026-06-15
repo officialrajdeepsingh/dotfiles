@@ -63,7 +63,7 @@
     gnome-tour
     gnome-music
     gnome-weather
-    gnome-console
+    # gnome-console
     epiphany
     gnome-contacts
     gnome-characters
