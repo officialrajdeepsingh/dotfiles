@@ -53,7 +53,9 @@
     ## Editor
     zed-editor
     vscode
-
+    
+    ## vscode
+    ripgrep # for Todo-Tree vscode extenstion
     ## Image editor
     gradia
 
