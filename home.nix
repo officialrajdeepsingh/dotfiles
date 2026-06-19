@@ -161,10 +161,15 @@
   # or
   #  /etc/profiles/per-user/officialrajdeepsingh/etc/profile.d/hm-session-vars.sh
 
+  # Fix: [ERROR] The configured global bin directory "/home/officialrajdeepsingh/.local/share/pnpm/bin" is not in PATH Run "pnpm setup" to update your shell configuration.
   home.sessionVariables = {
     EDITOR = "code";
+    PNPM_HOME = "$HOME/.local/share/pnpm";
   };
 
+  home.sessionPath = [
+    "$HOME/.local/share/pnpm"
+  ];
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
