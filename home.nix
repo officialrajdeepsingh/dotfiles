@@ -46,9 +46,11 @@
     obs-studio
 
     # Ghost CMS
-    ghost-cli
+    # ghost-cli # Message: Ghost v6.46.0 is not compatible with the current Node version. Your node version is 24.15.0, but Ghost v6.46.0 requires ^22.18.0
     # sqlite
 
+     # Genrate screenshort/videos for nerd-fonts-installer
+     vhs
 
     ## Editor
     zed-editor
