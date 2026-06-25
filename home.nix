@@ -49,8 +49,10 @@
     # ghost-cli # Message: Ghost v6.46.0 is not compatible with the current Node version. Your node version is 24.15.0, but Ghost v6.46.0 requires ^22.18.0
     # sqlite
 
-     # Genrate screenshort/videos for nerd-fonts-installer
-     vhs
+    # Genrate screenshort/videos for nerd-fonts-installer
+    vhs
+    shellcheck # for bash
+
 
     ## Editor
     zed-editor
