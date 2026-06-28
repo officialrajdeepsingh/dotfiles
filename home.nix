@@ -53,6 +53,8 @@
     vhs
     shellcheck # for bash
 
+    # Chatgpt
+    codex
 
     ## Editor
     zed-editor
