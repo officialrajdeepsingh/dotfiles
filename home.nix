@@ -142,6 +142,9 @@
     glow
     nixpacks
 
+    # Writting
+    languagetool
+
     ## others
     openssl
     gnome-tweaks
