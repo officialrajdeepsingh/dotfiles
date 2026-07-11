@@ -101,6 +101,7 @@
       # other packages...
     ]))
     uv # https://docs.astral.sh/uv/
+    nixfmt # NixOS language format code
 
 
     ## JavaScript
