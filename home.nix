@@ -88,6 +88,7 @@
     google-chrome
     tor-browser
     brave
+    firefox
 
     ## Language
     rustup
