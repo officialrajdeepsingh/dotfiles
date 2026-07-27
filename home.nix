@@ -98,8 +98,8 @@
     zig
     # Install python and python setuptools
     (python3.withPackages (ps: with ps; [
+      pip
       setuptools
-      # other packages...
     ]))
     uv # https://docs.astral.sh/uv/
     nixfmt # NixOS language format code
