@@ -28,7 +28,29 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  # networking.networkmanager.enable = true; 
+  # use iwd for wireless connection
+  # 1. Switch NetworkManager to iwd
+  networking.networkmanager = {
+    enable = true;
+    wifi.backend = "iwd";
+  };
+  networking.wireless.iwd.enable = true;
+  
+  # 2. Disable Wi-Fi powersave
+  networking.networkmanager.wifi.powersave = false;
+
+  # 3. Disable PCIe ASPM
+  boot.kernelParams = [
+  "pcie_aspm=off"
+  ];
+
+  # 4. Disable ASPM inside mt7921e
+  boot.extraModprobeConfig = ''
+    options mt7921e disable_aspm=Y
+  '';
+  # 5. (Temporary) Disable Avahi
+  services.avahi.enable = false;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -151,7 +173,6 @@
     gst_all_1.gst-plugins-bad
     gst_all_1.gst-plugins-ugly
     gst_all_1.gst-libav
-    gst_all_1.gst-vaapi
   ];
 
   # Define env Editor for sudo
