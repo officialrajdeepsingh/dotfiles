@@ -71,6 +71,8 @@
     ## Build Environments
     devbox
     devenv
+    socat
+    bubblewrap
 
     ## Kubernetes
     kubectl
@@ -147,9 +149,12 @@
     # Writting
     languagetool
 
+    ## to run AI modal with google colab
+    ngrok
+
     ## others
     openssl
-    gnome-tweaks
+    gnome-tweaks   
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage plain files is through 'home.file'.
