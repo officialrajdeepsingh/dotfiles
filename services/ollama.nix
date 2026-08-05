@@ -1,3 +1,8 @@
 {
-      services.ollama.enable = true;
+      services.ollama={
+          enable = true;
+          environmentVariables = { 
+            OLLAMA_ORIGINS="*";
+          };
+        };
 }
