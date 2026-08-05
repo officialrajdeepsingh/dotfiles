@@ -53,12 +53,16 @@
     vhs
     shellcheck # for bash
 
+
     # Chatgpt
     codex
 
     ## Editor
     zed-editor
     vscode
+    antigravity-cli
+    antigravity-ide
+    
     
     ## vscode
     ripgrep # for Todo-Tree vscode extenstion
