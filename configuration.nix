@@ -20,36 +20,31 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "nixos";
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # Enable firmware for all hardware
+  hardware.enableRedistributableFirmware = true;
 
-  # Enable networking
-  # networking.networkmanager.enable = true; 
-  # use iwd for wireless connection
-  # 1. Switch NetworkManager to iwd
+  # Configure network manager for stable Wi-Fi
   networking.networkmanager = {
     enable = true;
-    wifi.backend = "iwd";
+    wifi = {
+      backend = "wpa_supplicant";
+      powersave = false;
+      scanRandMacAddress = false;
+    };
   };
-  networking.wireless.iwd.enable = true;
-  
-  # 2. Disable Wi-Fi powersave
-  networking.networkmanager.wifi.powersave = false;
 
-  # 3. Disable PCIe ASPM
+  networking.wireless.iwd.enable = false;
+
   boot.kernelParams = [
-  "pcie_aspm=off"
+    "pcie_aspm=off"
   ];
 
-  # 4. Disable ASPM inside mt7921e
   boot.extraModprobeConfig = ''
     options mt7921e disable_aspm=Y
   '';
-  # 5. (Temporary) Disable Avahi
+
   services.avahi.enable = false;
 
   # Allow unfree packages
@@ -146,7 +141,6 @@
   # change the deafult bash Shell to zsh shell
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
-
 
   # Enable zsh for Home manager
   programs.zsh.enable = true;
@@ -248,8 +242,7 @@
 
   system.stateVersion = "23.05"; # Did you read the comment?
 
-
-  # fix: 
+  # fix:
   # ✅ modprobe -r mt7921e → shutdown works immediately.
   # ❌ Normal shutdown hangs with mt7921e errors.
   boot.kernelPackages = pkgs.linuxPackages_latest;
