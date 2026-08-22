@@ -153,10 +153,12 @@
     ## to run AI modal with google colab
     ngrok
 
+    # Gnome Application
+    gnome-tweaks
+    wordbook
+
     ## others
     openssl
-    gnome-tweaks
-    gnome-wordbook
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage plain files is through 'home.file'.
