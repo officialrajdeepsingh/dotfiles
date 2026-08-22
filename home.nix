@@ -38,7 +38,7 @@
 
     # Video editor
     kdePackages.kdenlive
-    frei0r  # Optional: for additional effects in kdenlive
+    frei0r # Optional: for additional effects in kdenlive
 
     # Screen record
     obs-studio
@@ -51,7 +51,6 @@
     vhs
     shellcheck # for bash
 
-
     # Chatgpt
     codex
 
@@ -60,8 +59,7 @@
     vscode
     antigravity-cli
     antigravity-ide
-    
-    
+
     ## vscode
     ripgrep # for Todo-Tree vscode extenstion
     ## Image editor
@@ -101,13 +99,14 @@
     lua
     zig
     # Install python and python setuptools
-    (python3.withPackages (ps: with ps; [
-      pip
-      setuptools
-    ]))
+    (python3.withPackages (
+      ps: with ps; [
+        pip
+        setuptools
+      ]
+    ))
     uv # https://docs.astral.sh/uv/
     nixfmt # NixOS language format code
-
 
     ## JavaScript
     fnm # mange the nodejs version
@@ -156,7 +155,8 @@
 
     ## others
     openssl
-    gnome-tweaks   
+    gnome-tweaks
+    gnome-wordbook
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage plain files is through 'home.file'.
