@@ -94,8 +94,12 @@
 
     ## Language
     rustup
-    gcc
     rustc
+    cargo
+    rustfmt
+    clippy
+    rust-analyzer
+    gcc
     lua
     zig
     # Install python and python setuptools
@@ -189,6 +193,7 @@
 
   home.sessionPath = [
     "$HOME/.local/share/pnpm"
+    "$HOME/.cargo/bin"
   ];
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
