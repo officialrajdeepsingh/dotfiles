@@ -94,11 +94,6 @@
 
     ## Language
     rustup
-    rustc
-    cargo
-    rustfmt
-    clippy
-    rust-analyzer
     gcc
     lua
     zig
