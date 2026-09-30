@@ -17,6 +17,7 @@
         li-nixos = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
         rm-garbage = "nix-collect-garbage";
         gemini = "pnpm dlx  @google/gemini-cli@latest";
+        update-ghost = "nix-shell -p nodejs_22 pnpm --run 'ghost update 6.67.0 --force'"
       };
       initContent = ''
         # FNM Manage the Node version
