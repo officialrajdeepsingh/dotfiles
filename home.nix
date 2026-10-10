@@ -122,6 +122,7 @@
     warp-terminal
 
     ## Utility
+    appimage-run
     git
     git-lfs # Git extension
     gh
