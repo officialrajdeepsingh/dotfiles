@@ -10,14 +10,14 @@
         build-test = "sudo nixos-rebuild test --flake ~/dotfiles/#default";
         upgrade = "sudo nixos-rebuild switch --upgrade  --flake ~/dotfiles/#default";
         upgrade-test = "sudo nixos-rebuild test --upgrade  --flake ~/dotfiles/#default";
-        flake-update= "nix flake update --flake  ~/dotfiles";
+        flake-update = "nix flake update --flake  ~/dotfiles";
         rm-home = "home-manager  remove-generations";
         li-home = "home-manager  generations";
         rm-nixos = "sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations";
         li-nixos = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
         rm-garbage = "nix-collect-garbage";
         gemini = "pnpm dlx  @google/gemini-cli@latest";
-        update-ghost = "nix-shell -p nodejs_22 pnpm --run 'ghost update --force'"
+        update-ghost = "nix-shell -p nodejs_22 pnpm --run 'ghost update --force'";
       };
       initContent = ''
         # FNM Manage the Node version
@@ -35,6 +35,18 @@
           "rust"
           "deno"
           "zoxide"
+          "dirhistory"
+          "wd"
+          "last-working-dir"
+          "sudo"
+          "extract"
+          "copypath"
+          "copyfile"
+          "copybuffer"
+          "gh"
+          "vscode"
+          "colored-man-pages"
+          "fnm"
         ];
       };
     };
